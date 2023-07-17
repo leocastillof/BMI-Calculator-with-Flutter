@@ -1,3 +1,4 @@
+import 'package:RayFit/ad_mob_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:RayFit/bmi/calculate.dart';
@@ -60,6 +61,9 @@ class _BmiCalculatorState extends State<BmiCalculator> {
   }
 
   void calculateBMI() {
+    // Ad
+    AdMobService().showInterstitialAd();
+
     double bmi = weightValue / ((heightValue / 100) * (heightValue / 100));
     Navigator.pushNamed(
       context,
@@ -72,11 +76,11 @@ class _BmiCalculatorState extends State<BmiCalculator> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(23, 14, 23, 1.0),
+        backgroundColor: const Color.fromRGBO(12, 12, 12, 1.0),
         centerTitle: true,
         title: const Text(
           "RayFit - IMC",
-          style: TextStyle(fontSize: 17, color: Colors.white, letterSpacing: 0.53),
+          style: TextStyle(fontSize: 20, color: Colors.orangeAccent, letterSpacing: 1.5, fontFamily: 'sans-serif', fontWeight: FontWeight.bold),
         ),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
@@ -90,7 +94,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
           ),
         ),
       ),
-      backgroundColor: const Color.fromRGBO(73, 44, 73, 1.0),
+      backgroundColor: const Color.fromRGBO(20, 20, 20, 1.0),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: SingleChildScrollView(
@@ -101,15 +105,15 @@ class _BmiCalculatorState extends State<BmiCalculator> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  radioButton("Masculino", const Color.fromRGBO(23, 14, 23, 1.0), 0, Icons.male),
-                  radioButton("Femenino", const Color.fromRGBO(23, 14, 23, 1.0), 1, Icons.female),
+                  radioButton("Masculino", const Color.fromRGBO(12, 12, 12, 1.0), 0, Icons.male),
+                  radioButton("Femenino", const Color.fromRGBO(12, 12, 12, 1.0), 1, Icons.female),
                 ],
               ),
               const SizedBox(height: 20),
               Container(
                 padding: const EdgeInsets.all(16.0),
                 decoration: BoxDecoration(
-                  color: const Color.fromRGBO(23, 14, 23, 1.0),
+                  color: const Color.fromRGBO(12, 12, 12, 1.0),
                   borderRadius: BorderRadius.circular(8.0),
                 ),
                 child: Column(
@@ -117,7 +121,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                     const Text(
                       'Altura en cm',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.orangeAccent,
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
@@ -132,7 +136,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                           heightValue = value;
                         });
                       },
-                      activeColor: const Color.fromRGBO(73, 44, 73, 1.0),
+                      activeColor: const Color.fromRGBO(20, 20, 20, 1.0),
                       thumbColor: Colors.white,
                     ),
                     const SizedBox(height: 16),
@@ -156,7 +160,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                       margin: const EdgeInsets.only(right: 4),
                       padding: const EdgeInsets.all(10.0),
                       decoration: BoxDecoration(
-                        color: const Color.fromRGBO(23, 14, 23, 1.0),
+                        color: const Color.fromRGBO(12, 12, 12, 1.0),
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       child: Column(
@@ -164,7 +168,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                           const Text(
                             'Peso en kg',
                             style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.orangeAccent,
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
                             ),
@@ -183,12 +187,12 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                                   });
                                 },
                               ),
-                              const SizedBox(width: 10),
+                              const SizedBox(width: 1),
                               Expanded(
                                 child: TextFormField(
                                   controller: weightController,
                                   keyboardType: const TextInputType.numberWithOptions(decimal: true),
-                                  style: const TextStyle(color: Colors.white, fontSize: 20),
+                                  style: const TextStyle(color: Colors.white, fontSize: 18),
                                   textAlign: TextAlign.center,
                                   onChanged: (value) {
                                     setState(() {
@@ -221,13 +225,13 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                       ),
                     ),
                   ),
-                  const SizedBox(width: 20),
+                  const SizedBox(width: 1),
                   Expanded(
                     child: Container(
                       margin: const EdgeInsets.only(left: 4),
                       padding: const EdgeInsets.all(10.0),
                       decoration: BoxDecoration(
-                        color: const Color.fromRGBO(23, 14, 23, 1.0),
+                        color: const Color.fromRGBO(12, 12, 12, 1.0),
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       child: Column(
@@ -235,7 +239,7 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                           const Text(
                             'Edad',
                             style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.orangeAccent,
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
                             ),
@@ -254,12 +258,12 @@ class _BmiCalculatorState extends State<BmiCalculator> {
                                   });
                                 },
                               ),
-                              const SizedBox(width: 10),
+                              const SizedBox(width: 1),
                               Expanded(
                                 child: TextFormField(
                                   controller: ageController,
                                   keyboardType: TextInputType.number,
-                                  style: const TextStyle(color: Colors.white, fontSize: 20),
+                                  style: const TextStyle(color: Colors.white, fontSize: 18),
                                   textAlign: TextAlign.center,
                                   onChanged: (value) {
                                     setState(() {
@@ -297,13 +301,13 @@ class _BmiCalculatorState extends State<BmiCalculator> {
               const SizedBox(height: 50),
               CupertinoButton(
                 onPressed: calculateBMI,
-                color: const Color.fromRGBO(23, 14, 23, 1.0),
+                color: const Color.fromRGBO(12, 12, 12, 1.0),
                 child: const Text(
                   'Calcular',
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: Colors.orangeAccent,
                   ),
                 ),
               ),
@@ -348,14 +352,14 @@ class _BmiCalculatorState extends State<BmiCalculator> {
             children: [
               Icon(
                 iconData,
-                color: currentIndex == index ? Colors.white : color,
+                color: currentIndex == index ? Colors.orangeAccent : color,
                 size: 40,
               ),
               const SizedBox(height: 8),
               Text(
                 value,
                 style: TextStyle(
-                  color: currentIndex == index ? Colors.white : color,
+                  color: currentIndex == index ? Colors.orangeAccent : color,
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
                 ),

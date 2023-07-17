@@ -6,13 +6,13 @@ class CalculateScreen extends StatelessWidget {
 
   String getBMIInterpretation(double bmi) {
     if (bmi < 18.5) {
-      return 'Tienes un peso corporal más bajo de lo normal. Te vendría bien aumentar tu peso.';
+      return 'Tienes un peso corporal por debajo del rango saludable. Considera hablar con un profesional de la salud para mejorar tu peso.';
     } else if (bmi >= 18.5 && bmi < 25.0) {
-      return 'Tienes un peso corporal normal. ¡Felicidades!';
+      return 'Tienes un peso corporal dentro del rango saludable. ¡Sigue cuidándote!';
     } else if (bmi >= 25.0 && bmi < 30.0) {
-      return 'Tienes sobrepeso. Sería bueno reducir tu peso corporal.';
+      return 'Tienes un ligero sobrepeso. Considera hacer cambios en tu estilo de vida para mantener un peso saludable.';
     } else {
-      return 'Tienes obesidad. Es importante tomar medidas para mejorar tu salud.';
+      return 'Tienes obesidad. Es importante tomar medidas para mejorar tu salud. Consulta a un profesional de la salud para obtener orientación.';
     }
   }
 
@@ -43,11 +43,11 @@ class CalculateScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(23, 14, 23, 1.0),
+        backgroundColor: const Color.fromRGBO(12, 12, 12, 1.0),
         centerTitle: true,
         title: const Text(
           "RayFit - IMC",
-          style: TextStyle(fontSize: 17, color: Colors.white, letterSpacing: 0.53),
+          style: TextStyle(fontSize: 20, color: Colors.orangeAccent, letterSpacing: 1.5, fontFamily: 'sans-serif', fontWeight: FontWeight.bold),
         ),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
@@ -63,7 +63,7 @@ class CalculateScreen extends StatelessWidget {
           ),
         ),
       ),
-      backgroundColor: const Color.fromRGBO(73, 44, 73, 1.0),
+      backgroundColor: const Color.fromRGBO(20, 20, 20, 1.0),
       body: Center(
         child: Container(
           width: double.infinity,
@@ -79,7 +79,7 @@ class CalculateScreen extends StatelessWidget {
               const SizedBox(height: 30),
               Container(
                 decoration: BoxDecoration(
-                  color: const Color.fromRGBO(23, 14, 23, 1.0),
+                  color: const Color.fromRGBO(12, 12, 12, 1.0),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 padding: const EdgeInsets.all(8),
@@ -97,17 +97,17 @@ class CalculateScreen extends StatelessWidget {
                     const SizedBox(height: 16),
                     Text(
                       interpretation,
-                      style: const TextStyle(fontSize: 18, color: Colors.white,),
+                      style: const TextStyle(fontSize: 15, color: Colors.white,),
                       textAlign: TextAlign.center,
                     ),
                   ],
                 ),
               ),
 
-              const SizedBox(height: 32),
+              const SizedBox(height: 60),
 
               CupertinoButton(
-                color: const Color.fromRGBO(23, 14, 23, 1.0),
+                color: const Color.fromRGBO(12, 12, 12, 1.0),
                 onPressed: () {
                   Navigator.pop(context);
                 },

@@ -1,6 +1,8 @@
+import 'package:RayFit/ad_mob_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:RayFit/bmi/dates.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -11,7 +13,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen>
 with SingleTickerProviderStateMixin{
-  
+
   @override
   void initState(){
     super.initState();
@@ -40,7 +42,7 @@ with SingleTickerProviderStateMixin{
         width: double.infinity,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color.fromRGBO(73, 44, 73, 1.0),  Color.fromRGBO(23, 14, 23, 1.0),],
+            colors: [Color.fromRGBO(12, 12, 12, 1.0),  Color.fromRGBO(20, 20, 20, 1.0),],
             begin: Alignment.topRight,
             end: Alignment.bottomLeft,
           ),
@@ -50,14 +52,14 @@ with SingleTickerProviderStateMixin{
           children: [
             Icon(Icons.fitness_center,
                 size: 80,
-                color: Colors.white
+                color: Colors.orangeAccent
             ),
             SizedBox(height: 20),
             Text('RayFit',
             style: TextStyle(
               fontStyle: FontStyle.normal,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: Colors.orangeAccent,
               fontSize: 32,
             ),)
           ],
